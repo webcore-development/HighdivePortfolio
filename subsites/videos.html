@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fotos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a class="link-home" href="../index.html"><h4 class="link-home"><img class="back-arrow" src="../img/arrow.png">Startseite</h4></a>
+        </div>
+    </header>
+    <main>
+        <section class="gallery-section">
+            <h1 class="title">Videos</h1>
+            <div class="gallery">
+
+                <div class="gallery-item"><video src="../video/1flip.mov" muted loop ></video></div>
+                <div class="gallery-item"><video src="../video/2flip.mov" muted loop ></video></div>
+                <div class="gallery-item"><video src="../video/3flip.mov" muted loop ></video></div>
+                <div class="gallery-item"><video src="../video/4flip.mov" muted loop ></video></div>
+                <div class="gallery-item"><video src="../video/5flip.mov" muted loop ></video></div>
+                <div class="gallery-item"><video src="../video/6flip.mov" muted loop ></video></div>
+                <div class="gallery-item"><video src="../video/7flip.mov" muted loop ></video></div>
+                <div class="gallery-item"><video src="../video/8flip.mov" muted loop ></video></div>
+                <div class="gallery-item"><video src="../video/9flip.mov" muted loop ></video></div>
+                <div class="gallery-item"><video src="../video/10flip.mov" muted loop ></video></div>
+
+            </div>    
+
+            <script>
+                document.querySelectorAll('.gallery-item video').forEach(video => {
+                    video.addEventListener('click', () => {
+                        // Überprüfen, ob bereits ein Overlay existiert
+                        if (document.querySelector('.fullscreen-overlay')) {
+                            document.body.removeChild(document.querySelector('.fullscreen-overlay'));
+                        } else {
+                            // Erstelle das Overlay
+                            const overlay = document.createElement('div');
+                            overlay.className = 'fullscreen-overlay';
+            
+                            // Container für das Video erstellen
+                            const videoContainer = document.createElement('div');
+                            videoContainer.className = 'video-container';
+            
+                            // Erstelle das Video im Vollbildmodus
+                            const fullscreenVideo = document.createElement('video');
+                            fullscreenVideo.src = video.src;
+                            fullscreenVideo.controls = true;
+                            fullscreenVideo.autoplay = true;
+                            fullscreenVideo.muted = video.muted;
+                            fullscreenVideo.loop = video.loop;
+                            fullscreenVideo.style.width = '100%';
+                            fullscreenVideo.style.height = '100%';
+                            fullscreenVideo.style.borderRadius = '15px'
+                            fullscreenVideo.style.objectFit = 'contain';
+                            
+                            videoContainer.appendChild(fullscreenVideo);
+                            overlay.appendChild(videoContainer);
+            
+                            // Füge das Overlay zur Seite hinzu
+                            document.body.appendChild(overlay);
+            
+                            // Event-Listener für das Overlay
+                            overlay.addEventListener('click', (event) => {
+                                // Wenn der Klick auf dem Overlay aber nicht im Video-Container ist
+                                if (!videoContainer.contains(event.target)) {
+                                    document.body.removeChild(overlay);
+                                }
+                            });
+            
+                            // Verhindere, dass Klicks auf dem Video das Overlay schließen
+                            videoContainer.addEventListener('click', (event) => {
+                                event.stopPropagation();
+                            });
+                        }
+                    });
+                });
+            </script>
+            
+
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 Malik Zehnder</p>
+    </footer>
+</body>
+</html>

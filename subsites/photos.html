@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fotos</title>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            
+            <a class="link-home" href="../index.html"><h4 class="link-home"><img class="back-arrow" src="../img/arrow.png">Startseite</h4></a>
+        </div>
+    </header>
+    <main>
+        <section class="gallery-section">
+            <h1 class="title">Fotos</h1>
+            <div class="gallery">
+                <div class="gallery-item"><img src="../img/10flip.jpg"></div>
+                <div class="gallery-item"><img src="../img/11flip.jpeg"></div>
+                <div class="gallery-item"><img src="../img/3flip.jpg"></div>
+                <div class="gallery-item"><img src="../img/7flip.jpg"></div>
+                <div class="gallery-item"><img src="../img/1flip.jpg"></div>
+                <div class="gallery-item"><img src="../img/2flip.jpg"></div>
+                <div class="gallery-item"><img src="../img/8flip.jpg"></div>
+                <div class="gallery-item"><img src="../img/9flip.jpg"></div>
+            </div>
+
+            <script>
+                document.querySelectorAll('.gallery-item img').forEach(img => {
+                    img.addEventListener('click', () => {
+                        if (document.querySelector('.fullscreen-overlay')) {
+                            document.body.removeChild(document.querySelector('.fullscreen-overlay'));
+                        } else {
+                            // Erstelle das Overlay
+                            const overlay = document.createElement('div');
+                            overlay.className = 'fullscreen-overlay';
+            
+                            // Erstelle das Bild im Vollbildmodus
+                            const fullscreenImg = document.createElement('img');
+                            fullscreenImg.src = img.src;
+                            fullscreenImg.alt = img.alt; // Optional: alt-Text für das Bild
+                            overlay.appendChild(fullscreenImg);
+            
+                            // Füge das Overlay zur Seite hinzu
+                            document.body.appendChild(overlay);
+            
+                            // Schließe das Overlay, wenn auf das Bild geklickt wird
+                            fullscreenImg.addEventListener('click', () => {
+                                document.body.removeChild(overlay);
+                            });
+            
+                            // Schließe das Overlay, wenn außerhalb des Bildes geklickt wird
+                            overlay.addEventListener('click', () => {
+                                document.body.removeChild(overlay);
+                            });
+                        }
+                    });
+                });
+            </script>
+            
+            
+
+        </section>
+    </main>
+    <footer class="footer">
+       <div class="footer-content">
+            <p>&copy; 2024 Malik Zehnder</p>
+        </div> 
+    </footer>
+</body>
+</html>

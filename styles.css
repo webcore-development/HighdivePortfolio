@@ -1,0 +1,176 @@
+html, body {
+    background-image: url('img/5flip.jpg');
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-size: cover;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent;
+    padding: 10px 20px;
+    z-index: 1;
+}
+
+header a{
+    text-decoration: none;
+}
+
+.header-left {
+    margin-right: auto;
+}
+
+.title {
+    text-decoration: none;
+    color: white;
+    font-size: 25px;
+}
+
+.header-right {
+    display: flex;
+    gap: 15px;
+}
+
+.header-right a {
+    text-decoration: none;
+    color: white;
+    margin: 20px;
+}
+
+.header-right a:hover {
+    animation: bounce 0.4s ease;
+    opacity: 40%;
+}
+
+/*
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+*/
+
+.button-middle {
+    font-size: larger;
+    color: white;
+    text-align: center;
+}
+
+.button {
+    background-color: transparent;
+    padding: 10px;
+    border: 2px solid white;
+    color: white;
+    border-radius: 10px;
+}
+
+.button:hover {
+    background-color: white;
+    color: green;
+}
+
+.logo {
+    color: white;
+    height: 50px;
+    width: auto;
+}
+
+footer {
+    background-color: transparent;
+    color: white;
+    text-align: left;
+    text-decoration: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+.footer-content {
+    text-decoration: none;
+    color: white;
+    margin: 10px;
+    font-size: small;
+}
+
+.footer-left {
+    margin: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.footer-right {
+    position: absolute;
+    justify-content: right;
+    margin: 10px;
+    right: 0;
+    bottom: 0;
+    width: 500px;
+    display: flex;
+}
+
+@media (max-width: 1000px) {
+    .footer-left,
+    .footer-right {
+      position: relative;
+      text-align: center;
+      width: 100%;
+      /* padding: 10px; */
+    }
+
+    .footer-left {
+      margin-bottom: 10px;
+    }
+  }
+
+.footer-right a{
+    text-decoration: none;
+    color: white;
+}
+
+.footer-right a:hover {
+    text-decoration: underline;
+}
+
+.content {
+    color: white;
+}
+
+main {
+    position: absolute;
+    top: 45%;
+    left: 35%;
+    width: auto;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.link {
+    text-decoration: none;
+}
+
+.content-main {
+    margin-top: 30px;
+    height: auto;
+    width: 50vh;
+    color: white;
+    background-color: transparent;
+    font-size: larger;
+}
